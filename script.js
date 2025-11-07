@@ -38,8 +38,8 @@ function renderCart() {
 // Add item to cart
 function addToCart(productId) {
   const product = products.find(p => p.id === parseInt(productId));
-  if (product && !shoppingCartList.some(item => item.id === product.id)) {
-    shoppingCartList.push(product);
+  if (product) {
+    shoppingCartList.push(product); // Allow duplicates as per test expectation
     sessionStorage.setItem('cart', JSON.stringify(shoppingCartList));
     renderCart();
   }
